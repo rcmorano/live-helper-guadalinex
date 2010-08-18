@@ -52,15 +52,6 @@ fi
 cd binary
 find . -type f \! -path './isolinux/isolinux.bin' \! -path './boot/grub/stage2_eltorito' -print0 | sort -z | xargs -0 md5sum > ../md5sum.txt
 
-cat > md5sum.txt << EOF
-This file contains the list of md5 checksums of all files on this medium.
-
-You can verify them automatically with the 'integrity-check' boot parameter,
-or, manually with: 'md5sum -c md5sum.txt'.
-
-
-EOF
-
 cat ../md5sum.txt >> md5sum.txt
 rm -f ../md5sum.txt
 
